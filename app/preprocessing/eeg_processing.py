@@ -160,12 +160,12 @@ def welch(wins_array: np.ndarray, sampling_rate: float = SAMPLING_RATE,
     for idx in range(win_cnts):
         curr_win = wins_array[idx]
         freqs, psds = signal.welch(curr_win, fs=sampling_rate, nperseg=samples_per_seg, axis=-1)
-        integrated_psd_in_all_freqs = np.trapezoid(psds, freqs, axis=-1) + 1e-12
+        integrated_psd_in_all_freqs = np.trapz(psds, freqs, axis=-1) + 1e-12
 
         curr_win_bands = []
         for (low_freq, high_freq) in freq_bands:
             is_in_this_freq_band_tf = (freqs >= low_freq) & (freqs < high_freq)
-            integrated_psd_in_this_freq_band = np.trapezoid(
+            integrated_psd_in_this_freq_band = np.np.trapz(
                 psds[:, is_in_this_freq_band_tf], 
                 freqs[is_in_this_freq_band_tf], 
                 axis=-1
