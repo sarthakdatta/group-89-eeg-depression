@@ -18,7 +18,7 @@ This project consists of:
 
 - 🧠 EEG signal preprocessing (bandpass filtering, notch filtering, noise removal)
 - 📊 Feature extraction using Welch's method (5 frequency bands across 128 channels)
-- 🤖 Machine learning classification (Logistic Regression)
+- 🤖 Deep learning classification (MLP, Keras)
 - 🌐 RESTful API with FastAPI
 - 💻 Interactive web interface with Streamlit
 - 🐳 Docker support for easy deployment
@@ -45,7 +45,7 @@ pip install -r requirements.txt
 
 3. Ensure the model file is present:
 ```bash
-ls eeg_depression_model.pkl
+ls eeg_depression_model.keras
 ```
 
 ## Usage
@@ -176,11 +176,10 @@ curl -X POST "http://localhost:8000/api/v1/predict" \
 
 ## Model Information
 
-- **Model Type**: Logistic Regression (scikit-learn)
+- **Model Type**: MLP (Keras / TensorFlow)
 - **Training Dataset**: MODMA (Multimodal Open Dataset for Mental Disorder Analysis)
 - **Features**: 640 (128 channels × 5 frequency bands)
-- **Output**: Binary classification with probability scores
-
+- **Output**: Binary classification (Depressed / Not Depressed) with probability scores
 ## Deployment
 
 This application can be deployed to:
