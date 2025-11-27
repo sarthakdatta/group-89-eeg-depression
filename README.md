@@ -127,7 +127,7 @@ docker run -p 8000:8000 eeg-depression-api
    - 640 features total (128 channels × 5 bands)
 
 3. **Classification**:
-   - Trained Logistic Regression model
+   - Trained MLP model
    - Binary classification: Depressed (1) or Not Depressed (0)
    - Probability scores for each class
 
@@ -150,7 +150,7 @@ group-89-eeg-depression/
 ├── run_streamlit.py            # Streamlit runner script
 ├── requirements.txt            # Python dependencies
 ├── Dockerfile                  # Docker configuration
-├── eeg_depression_model.pkl    # Trained model
+├── eeg_depression_model.keras  # Trained model
 └── README.md                   # This file
 ```
 
